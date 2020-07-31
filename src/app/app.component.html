@@ -12,27 +12,27 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+          <a class="nav-link" [routerLink]="['/inicio']">Inicio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Categorias</a>
         </li>
       </ul>
 
-      <ul class="navbar-nav mr-right">
+      <ul class="navbar-nav mr-right" *ngIf="!identity">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Ingresa</a>
+          <a class="nav-link" [routerLink]="['/login']">Ingresa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Registrate</a>
+          <a class="nav-link" [routerLink]="['/registro']">Registrate</a>
         </li>
       </ul>
 
-      <ul class="navbar-nav mr-right">
+      <ul class="navbar-nav mr-right" *ngIf="identity && identity.name">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          Nombre de Usuario
+         {{identity.name + ' ' +identity.surename}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Crear entrada</a>
@@ -40,7 +40,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Mi perfil</a>
           <a class="dropdown-item" href="#">Ajustes</a>
-          <a class="dropdown-item" href="#">Salir</a>
+          <a class="dropdown-item" [routerLink]="['/logout/1']">Salir</a>
         </div>
       </li>
 
@@ -48,4 +48,5 @@
 
     </div>
   </nav>
+  <router-outlet></router-outlet>
 </div>
