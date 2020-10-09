@@ -1,4 +1,6 @@
-export class post{
+import { Category } from './category';
+import { User } from './user';
+export class Post{
     constructor(
         public id: number,
         public user_id: number,
@@ -7,6 +9,5 @@ export class post{
         public content: string,
         public image: string,
         public createdAt: any
-
     ){}
 }
